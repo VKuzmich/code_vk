@@ -1,7 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="117b4b38-c9d7-490b-b5f0-a75a9e866d64" name="Default Changelist" comment="" />
+    <list default="true" id="117b4b38-c9d7-490b-b5f0-a75a9e866d64" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/codebreaker/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/codebreaker/.rspec" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/codebreaker/.travis.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/codebreaker/CODE_OF_CONDUCT.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/codebreaker/Gemfile" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/codebreaker/LICENSE.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/codebreaker/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/codebreaker/Rakefile" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/codebreaker/bin/console" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/codebreaker/bin/setup" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/codebreaker/codebreaker.gemspec" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/codebreaker/lib/codebreaker.rb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/codebreaker/lib/codebreaker/version.rb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/codebreaker/spec/codebreaker_spec.rb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/codebreaker/spec/spec_helper.rb" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -12,11 +28,15 @@
     <session id="1463203759">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
+          <entry key="project.closed" value="1" />
           <entry key="project.open.time.0" value="1" />
           <entry key="project.opened" value="1" />
         </counts>
       </usages-collector>
     </session>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/codebreaker" />
   </component>
   <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
   <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
@@ -25,11 +45,12 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="589" />
-    <option name="y" value="23" />
+    <option name="x" value="154" />
+    <option name="y" value="24" />
     <option name="width" value="931" />
     <option name="height" value="805" />
   </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
@@ -66,15 +87,15 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1563262787452</updated>
-      <workItem from="1563262788835" duration="517000" />
+      <workItem from="1563262788835" duration="912000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="517000" />
+    <option name="totallyTimeSpent" value="912000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="500" y="23" width="931" height="805" extended-state="0" />
+    <frame x="589" y="23" width="931" height="805" extended-state="0" />
     <layout>
       <window_info id="Favorites" side_tool="true" />
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.24971879" />
