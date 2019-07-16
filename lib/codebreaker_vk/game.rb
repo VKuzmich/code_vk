@@ -26,17 +26,17 @@ module CodebreakerVk
     def check_guess(input)
       input = to_array(input)
 
-      return add_error(GuessFormatError) unless valid? input
+      return add_error(FormatError) unless valid? input
 
       @tries_count -= 1
 
-      resolver = CodeResolver.new(@secret, input)
+      resolver = GameProcess.new(@secret, input)
 
       @matches = resolver.matches
     end
 
     def generate_hint
-      return add_error(NoHintsError) if @hints_count.zero?
+      return add_error(MaxHintError) if @hints_count.zero?
 
       index = @hint_indexes.sample
 
@@ -75,7 +75,7 @@ module CodebreakerVk
     end
 
     def validate_difficulty(difficulty)
-      raise DifficultyError unless DIFFICULTIES.include? difficulty.to_sym
+      raise DifficultyLevelError unless DIFFICULTIES.include? difficulty.to_sym
     end
 
     def to_array(input)
