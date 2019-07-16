@@ -19,7 +19,7 @@ module CodebreakerVk
       @hints_count  = DIFFICULTIES[@difficulty][:hints]
 
       @errors       = []
-
+      @hints        = []
       @matches      = ''
     end
 
@@ -46,7 +46,7 @@ module CodebreakerVk
 
       @hints_count -= 1
 
-      hint
+      @hint<<hint
     end
 
     def win?
