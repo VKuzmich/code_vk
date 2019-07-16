@@ -100,7 +100,7 @@ module CodebreakerVk
         4.times do
           hint = game.generate_hint
 
-          expect(game.instance_variable_get(:@secret)).to include(hint.sample)
+          expect(game.instance_variable_get(:@secret)).to include(hint)
         end
       end
 
@@ -112,10 +112,10 @@ module CodebreakerVk
         hint3 = game.generate_hint
         hint4 = game.generate_hint
 
-        expect(hint1[0]).not_to eql(hint2[1])
-        expect(hint2[1]).not_to eql(hint3[2])
-        expect(hint3[2]).not_to eql(hint4[3])
-        expect(hint4[3]).not_to eql(hint1[4])
+        expect(hint1).not_to eql(hint2)
+        expect(hint2).not_to eql(hint3)
+        expect(hint3).not_to eql(hint4)
+        expect(hint4).not_to eql(hint1)
       end
 
       it 'reduces hint_indexes by one' do
