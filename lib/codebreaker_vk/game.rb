@@ -6,7 +6,7 @@ module CodebreakerVk
   class Game
     attr_reader :tries_count, :hints_count, :errors
 
-    def initialize(difficulty: :kid)
+    def initialize(difficulty: :easy)
       validate_difficulty(difficulty)
 
       @difficulty   = difficulty

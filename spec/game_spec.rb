@@ -14,12 +14,12 @@ module CodebreakerVk
 
     describe '#difficulty' do
       it 'sets default difficulty' do
-        expect(game.instance_variable_get(:@difficulty)).to be(:kid)
+        expect(game.instance_variable_get(:@difficulty)).to be(:easy)
       end
 
       it 'sets custom difficulty' do
-        test = Game.new(difficulty: :average)
-        expect(test.instance_variable_get(:@difficulty)).to be(:average)
+        test = Game.new(difficulty: :medium)
+        expect(test.instance_variable_get(:@difficulty)).to be(:medium)
       end
 
       it 'return error on non-existent difficulty' do

@@ -10,8 +10,8 @@ module CodebreakerVk
   MAX_CODE_NUMBER = 6
 
   DIFFICULTIES = {
-      kid: { tries: 15, hints: 2 },
-      average: { tries: 10, hints: 1 },
-      hacker: { tries: 5, hints: 1 }
+      easy: { tries: 15, hints: 2 },
+      medium: { tries: 10, hints: 1 },
+      hell: { tries: 5, hints: 1 }
   }.freeze
 end
