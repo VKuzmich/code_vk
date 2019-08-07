@@ -37,7 +37,7 @@ PreCommit:
     enabled: true
 
   BundleAudit:
-    enabled: true
+    enabled: false
 
   RSpec:
     enabled: true
