@@ -1,5 +1,5 @@
 # frozen_string_literal: true
 
 module CodebreakerVk
-  VERSION = '1.0.1'
+  VERSION = '0.3.1'
 end

@@ -43,14 +43,16 @@ PreCommit:
     enabled: true
 
   BundleOutdated:
-    enabled: true
+    enabled: false
 
   ExecutePermissions:
     enabled: false
 
   ForbiddenBranches:
-    enabled: true
+    enabled: false
     branch_patterns: ['master']
 
   LineEndings:
-    enabled: true
+    enabled: false
+
+
