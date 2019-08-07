@@ -5,14 +5,14 @@ $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 require 'codebreaker_vk/version'
 
 Gem::Specification.new do |spec|
-  spec.name          = 'application'
+  spec.name          = 'codebreaker_vk'
   spec.version       = CodebreakerVk::VERSION
   spec.authors       = ['VKuzmich']
   spec.email         = ["vjk1976@ukr.net"]
 
   spec.summary       = 'Codebreaker game'
   spec.description   = 'Game for everyone who likes to play.'
-  spec.homepage      = 'https://github.com/VKuzmich/application'
+  spec.homepage      = 'https://github.com/VKuzmich/codebreaker_vk'
   spec.license       = 'MIT'
 
   spec.files         = Dir.chdir(File.expand_path('..', __FILE__)) do
