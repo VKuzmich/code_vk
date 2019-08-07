@@ -1,5 +1,5 @@
 # frozen_string_literal: true
 
 module CodebreakerVk
-  MaxHintError = Class.new(StandardError)
+  VERSION = '1.0.1'
 end

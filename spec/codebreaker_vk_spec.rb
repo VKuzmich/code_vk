@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require_relative '../lib/codebreaker_vk/version'
+require_relative '../lib/application/version'
 
 RSpec.describe CodebreakerVk do
 

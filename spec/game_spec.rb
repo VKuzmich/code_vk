@@ -4,176 +4,172 @@ require 'spec_helper'
 
 module CodebreakerVk
   RSpec.describe Game do
-    let(:game) { Game.new }
+    subject(:game) { described_class.new(difficalty_double, user_double) }
 
-    it { is_expected.to respond_to(:tries_count) }
-    it { is_expected.not_to respond_to(:tries_count=) }
+    let(:valid_name) { 'a' * GameUser::VALID_NAME_SIZE.min }
+    let(:difficalty_double) { instance_double('Difficalty', level: Difficulty::DIFFICULTIES[:simple]) }
+    let(:user_double) { instance_double('GameUser', name: valid_name) }
+    let(:guess_place) { Game::GUESS_PLACE }
+    let(:guess_presence) { Game::GUESS_PRESENCE }
+    let(:array_for_breaker_numbers) { Array.new(Game::CODE_SIZE) { rand(Game::INCLUDE_IN_GAME_NUMBERS) } }
+    let(:shuffled_array_of_breaker_numbers) { array_for_breaker_numbers.map(&:succ) }
 
-    it { is_expected.to respond_to(:hints_count) }
-    it { is_expected.not_to respond_to(:hints_count=) }
-
-    describe '#difficulty' do
-      it 'sets default difficulty' do
-        expect(game.instance_variable_get(:@difficulty)).to be(:easy)
-      end
-
-      it 'sets custom difficulty' do
-        test = Game.new(difficulty: :medium)
-        expect(test.instance_variable_get(:@difficulty)).to be(:medium)
-      end
-
-      it 'return error on non-existent difficulty' do
-        expect { Game.new(difficulty: :assas) }.to raise_error(DifficultyLevelError)
-      end
+    describe '.new' do
+      it { expect(game.attempts).to eq(Difficulty::DIFFICULTIES[:simple][:attempts]) }
+      it { expect(game.hints).to eq(Difficulty::DIFFICULTIES[:simple][:hints]) }
     end
 
-    describe '#initialize' do
-      context 'when hints variable' do
-        let(:hint_indexes) { game.instance_variable_get(:@hint_indexes) }
-
-        it 'not empty' do
-          expect(hint_indexes).not_to be_empty
-        end
-
-        it 'with numbers from 0 to 3' do
-          expect(hint_indexes).to eql([0, 1, 2, 3])
-        end
+    describe '#hint' do
+      context 'when check_hint_including_in_code' do
+        it { expect(game.instance_variable_get(:@breaker_numbers)).to include(game.hint) }
       end
 
-      context 'when secret code' do
-        let(:secret_code) { game.instance_variable_get(:@secret) }
-
-        it 'not empty' do
-          expect(secret_code).not_to be_empty
-        end
-
-        it 'with 4 numbers' do
-          expect(secret_code.size).to be(4)
-        end
-
-        it 'with numbers from 1 to 6' do
-          expect(secret_code.join).to match(/[1-6]+/)
-        end
-
-        it 'new each time game starts' do
-          code1 = secret_code
-          game2 = Game.new
-          code2 = game2.instance_variable_get(:@code)
-
-          expect(code1).not_to eql(code2)
-        end
+      context 'when check_hints_decrease' do
+        it { expect { game.hint }.to change(game, :hints).by(-1) }
       end
 
-      context 'when tries_count variable' do
-        let(:tries_count) { game.instance_variable_get(:@tries_count) }
-
-        it 'not nil' do
-          expect(tries_count).not_to eql(nil)
-        end
-
-        it 'with the correct data' do
-          expect(tries_count).to be(15)
-        end
-      end
-
-      context 'when hints_count variable' do
-        let(:hints_count) { game.instance_variable_get(:@hints_count) }
-
-        it 'not nil' do
-          expect(hints_count).not_to eql(nil)
-        end
-
-        it 'with the correct data' do
-          expect(hints_count).to be(2)
+      context 'when check_hints_return_nil_with_zero_hints' do
+        it do
+          game.instance_variable_set(:@hints, 0)
+          expect(game.hint).to eq(nil)
         end
       end
     end
 
-    describe '#generate_hint' do
+    describe 'check_attempts_decrease' do
+      it { expect { game.start_round([1, 1, 1, 1]) }.to change(game, :attempts).by(-1) }
+    end
+
+    describe '#lose?' do
       before do
-        game.instance_variable_set(:@secret, [6, 5, 4, 3])
+        game.instance_variable_set(:@breaker_numbers, array_for_breaker_numbers)
+        game.instance_variable_set(:@attempts, 2)
       end
 
-      it 'generates correct hint' do
-        game.instance_variable_set(:@hints_count, 99)
+      context 'when lose_eq_false' do
+        it { expect(game.lose?(shuffled_array_of_breaker_numbers)).to eq false }
+      end
 
-        4.times do
-          hint = game.generate_hint
-
-          expect(game.instance_variable_get(:@secret)).to include(hint)
+      context 'when lose_eq_true' do
+        it do
+          result = game.start_round(shuffled_array_of_breaker_numbers)
+          expect(game.lose?(result)).to eq true
         end
-      end
-
-      it 'generates new hint each time' do
-        game.instance_variable_set(:@hints_count, 99)
-
-        hint1 = game.generate_hint
-        hint2 = game.generate_hint
-        hint3 = game.generate_hint
-        hint4 = game.generate_hint
-
-        expect(hint1).not_to eql(hint2)
-        expect(hint2).not_to eql(hint3)
-        expect(hint3).not_to eql(hint4)
-        expect(hint4).not_to eql(hint1)
-      end
-
-      it 'reduces hint_indexes by one' do
-        expect do
-          game.generate_hint
-        end.to change { game.instance_variable_get(:@hint_indexes).size }.by(-1)
-      end
-
-      it 'decreases hints_count by one' do
-        expect do
-          game.generate_hint
-        end.to change { game.instance_variable_get(:@hints_count) }.by(-1)
-      end
-
-      it 'increases hints_used by one' do
-        expect do
-          game.generate_hint
-        end.to change { game.data[:hints_used] }.by(1)
-      end
-
-      it 'adds error if no hints left' do
-        game.instance_variable_set(:@hints_count, 0)
-
-        game.generate_hint
-
-        expect(game.errors).to include(MaxHintError)
       end
     end
 
     describe '#win?' do
-      before do
-        game.instance_variable_set(:@secret, [6, 5, 4, 3])
+      let(:guess) { array_for_breaker_numbers }
+
+      before { game.instance_variable_set(:@breaker_numbers, array_for_breaker_numbers) }
+
+      context 'when win_eq_all_guessed' do
+        it { expect(game.instance_variable_get(:@breaker_numbers)).to eq(guess) }
       end
 
-      it 'returns true if guessed' do
-        game.check_guess('6543')
-
-        expect(game.win?).to be(true)
+      context 'when win_eq_true' do
+        it { expect(game.win?(guess)).to eq true }
       end
 
-      it 'returns false if not guessed' do
-        game.check_guess('1111')
-
-        expect(game.win?).to be(false)
+      context 'when win_eq_false' do
+        it { expect(game.win?(shuffled_array_of_breaker_numbers)).to eq false }
       end
     end
 
-    describe '#lose?' do
-      it 'returns true if no tries left' do
-        game.instance_variable_set(:@tries_count, 0)
+    describe '#check_start_round_with_[1, 2, 3, 4]' do
+      before { game.instance_variable_set(:@breaker_numbers, [1, 2, 3, 4]) }
 
-        expect(game.lose?).to be(true)
+      it do
+        guess = [3, 1, 2, 4]
+        expect(game.start_round(guess)).to eq [guess_place, guess_presence, guess_presence, guess_presence]
       end
 
-      it 'returns false if one more tries left' do
-        game.instance_variable_set(:@tries_count, 1)
+      it do
+        guess = [1, 5, 2, 4]
+        expect(game.start_round(guess)).to eq [guess_place, guess_place, guess_presence]
+      end
+    end
 
-        expect(game.lose?).to be(false)
+    describe '#check_start_round_with_[6, 5, 4, 3]' do
+      before { game.instance_variable_set(:@breaker_numbers, [6, 5, 4, 3]) }
+
+      context 'when with_pluses' do
+        it do
+          guess = [5, 6, 4, 3]
+          expect(game.start_round(guess)).to eq [guess_place, guess_place, guess_presence, guess_presence]
+        end
+
+        it do
+          guess = [6, 4, 1, 1]
+          expect(game.start_round(guess)).to eq [guess_place, guess_presence]
+        end
+
+        it do
+          guess = [6, 5, 4, 4]
+          expect(game.start_round(guess)).to eq [guess_place, guess_place, guess_place]
+        end
+
+        it do
+          guess = [6, 6, 6, 6]
+          expect(game.start_round(guess)).to eq [guess_place]
+        end
+      end
+
+      context 'when with_minuses' do
+        it do
+          guess = [3, 4, 5, 6]
+          expect(game.start_round(guess)).to eq [guess_presence, guess_presence, guess_presence, guess_presence]
+        end
+
+        it do
+          guess = [2, 6, 6, 6]
+          expect(game.start_round(guess)).to eq [guess_presence]
+        end
+
+        it do
+          guess = [2, 2, 2, 2]
+          expect(game.start_round(guess)).to eq []
+        end
+      end
+    end
+
+    describe '#check_start_round_with_[6, 6, 6, 6]' do
+      it do
+        game.instance_variable_set(:@breaker_numbers, [6, 6, 6, 6])
+        guess = [1, 6, 6, 1]
+        expect(game.start_round(guess)).to eq [guess_place, guess_place]
+      end
+    end
+
+    describe 'ruby_garage_tests' do
+      [
+          [[6, 5, 4, 1], [6, 5, 4, 1], [Game::GUESS_PLACE, Game::GUESS_PLACE, Game::GUESS_PLACE, Game::GUESS_PLACE]],
+          [[1, 2, 2, 1], [2, 1, 1, 2], [Game::GUESS_PRESENCE, Game::GUESS_PRESENCE,
+                                        Game::GUESS_PRESENCE, Game::GUESS_PRESENCE]],
+          [[6, 2, 3, 5], [2, 3, 6, 5], [Game::GUESS_PLACE, Game::GUESS_PRESENCE,
+                                        Game::GUESS_PRESENCE, Game::GUESS_PRESENCE]],
+          [[1, 2, 3, 4], [4, 3, 2, 1], [Game::GUESS_PRESENCE, Game::GUESS_PRESENCE,
+                                        Game::GUESS_PRESENCE, Game::GUESS_PRESENCE]],
+          [[1, 2, 3, 4], [1, 2, 3, 5], [Game::GUESS_PLACE, Game::GUESS_PLACE, Game::GUESS_PLACE]],
+          [[1, 2, 3, 4], [5, 4, 3, 1], [Game::GUESS_PLACE, Game::GUESS_PRESENCE, Game::GUESS_PRESENCE]],
+          [[1, 2, 3, 4], [1, 5, 2, 4], [Game::GUESS_PLACE, Game::GUESS_PLACE, Game::GUESS_PRESENCE]],
+          [[1, 2, 3, 4], [4, 3, 2, 6], [Game::GUESS_PRESENCE, Game::GUESS_PRESENCE, Game::GUESS_PRESENCE]],
+          [[1, 2, 3, 4], [3, 5, 2, 5], [Game::GUESS_PRESENCE, Game::GUESS_PRESENCE]],
+          [[1, 2, 3, 4], [5, 6, 1, 2], [Game::GUESS_PRESENCE, Game::GUESS_PRESENCE]],
+          [[5, 5, 6, 6], [5, 6, 0, 0], [Game::GUESS_PLACE, Game::GUESS_PRESENCE]],
+          [[1, 2, 3, 4], [6, 2, 5, 4], [Game::GUESS_PLACE, Game::GUESS_PLACE]],
+          [[1, 2, 3, 1], [1, 1, 1, 1], [Game::GUESS_PLACE, Game::GUESS_PLACE]],
+          [[1, 1, 1, 5], [1, 2, 3, 1], [Game::GUESS_PLACE, Game::GUESS_PRESENCE]],
+          [[1, 2, 3, 4], [4, 2, 5, 5], [Game::GUESS_PLACE, Game::GUESS_PRESENCE]],
+          [[1, 2, 3, 4], [5, 6, 3, 5], [Game::GUESS_PLACE]],
+          [[1, 2, 3, 4], [6, 6, 6, 6], []],
+          [[1, 2, 3, 4], [2, 5, 5, 2], [Game::GUESS_PRESENCE]]
+      ].each do |item|
+        it "when result is #{item[2]} if code is - #{item[0]}, guess is #{item[1]}" do
+          game.instance_variable_set(:@breaker_numbers, item[0])
+          guess = item[1]
+          expect(game.start_round(guess)).to eq item[2]
+        end
       end
     end
   end

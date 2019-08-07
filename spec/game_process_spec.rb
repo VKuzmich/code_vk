@@ -4,55 +4,59 @@ require 'spec_helper'
 
 module CodebreakerVk
   RSpec.describe GameProcess do
-    subject(:game) { Game.new }
+    subject(:guess) { described_class.new(valid_guess) }
 
-    describe '#check_guess' do
-      let(:test_data) do
-        [
-            ['6543', '5643', '++--'],
-            ['6543', '6411', '+-'],
-            ['6543', '6544', '+++'],
-            ['6543', '3456', '----'],
-            ['6543', '6666', '+'],
-            ['6543', '2666', '-'],
-            ['6543', '2222', ''],
-            ['6666', '1661', '++'],
-            ['1234', '3124', '+---'],
-            ['1234', '1524', '++-'],
-            ['1234', '1234', '++++']
-        ]
+    let(:valid_numbers) { Game::INCLUDE_IN_GAME_NUMBERS.map(&:to_s) }
+    let(:valid_guess) { valid_numbers.sample(4).join }
+    let(:invalid_guess) { (Game::INCLUDE_IN_GAME_NUMBERS.max + 1).to_s * (Game::CODE_SIZE - 1) }
+
+    describe '.new' do
+      it { expect(guess.input).to eq(valid_guess) }
+      it { expect(guess.instance_variable_get(:@errors)).to eq([]) }
+    end
+
+    describe '#as_array_of_numbers' do
+      it { expect(guess.as_array_of_numbers).to eq(valid_guess.chars.map(&:to_i)) }
+    end
+
+    describe 'valid_check' do
+      before { guess.validate }
+
+      context 'when #validate true' do
+        it { expect(guess.errors.empty?).to eq(true) }
       end
 
-      let(:wrong_inputs) do
-        ['12345', '', 'aerwfds', 'f432tsda', '!@!$#!$', '7777', nil]
+      context 'when #valid true?' do
+        it { expect(guess.valid?).to eq(true) }
       end
 
-      it 'returns correct results' do
-        test_data.each do |test_case|
-          game.instance_variable_set(:@secret, test_case[0].to_i.digits.reverse)
-
-          expect(game.check_guess(test_case[1])).to eql(test_case[2])
+      context 'when #hint true?' do
+        it do
+          guess.instance_variable_set(:@input, GameProcess::HINT)
+          expect(guess.valid?).to eq(true)
         end
       end
+    end
 
-      it 'decreases tries by 1' do
-        expect do
-          game.check_guess('1234')
-        end.to change { game.instance_variable_get(:@tries_count) }.by(-1)
+    describe 'invalid_check' do
+      before do
+        guess.instance_variable_set(:@input, invalid_guess)
+        guess.validate
       end
 
-      it 'adds error on wrong guess format' do
-        wrong_inputs.size.times do |i|
-          game.check_guess(wrong_inputs[i])
+      context 'when #validate false' do
+        it { expect(guess.errors).to eq([I18n.t('invalid.include_error'), I18n.t('invalid.size_error')]) }
+      end
 
-          expect(game.errors).to include(FormatError)
+      context 'when #valid false?' do
+        it { expect(guess.valid?).to eq(false) }
+      end
+
+      context 'when #hint false?' do
+        it do
+          guess.instance_variable_set(:@input, GameProcess::HINT.succ)
+          expect(guess.valid?).to eq(false)
         end
-      end
-
-      it 'increases tries_used by one' do
-        expect do
-          game.check_guess('1234')
-        end.to change { game.data[:tries_used] }.by(1)
       end
     end
   end
