@@ -2,26 +2,24 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="117b4b38-c9d7-490b-b5f0-a75a9e866d64" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codebreaker/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codebreaker/.rspec" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codebreaker/.travis.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codebreaker/CODE_OF_CONDUCT.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codebreaker/Gemfile" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codebreaker/LICENSE.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codebreaker/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codebreaker/Rakefile" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codebreaker/bin/console" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codebreaker/bin/setup" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codebreaker/codebreaker.gemspec" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codebreaker/lib/codebreaker.rb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codebreaker/lib/codebreaker/version.rb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codebreaker/spec/codebreaker_spec.rb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codebreaker/spec/spec_helper.rb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/codebreaker_vk/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/codebreaker_vk/.rspec" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/codebreaker_vk/.travis.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/codebreaker_vk/CODE_OF_CONDUCT.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/codebreaker_vk/Gemfile" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/codebreaker_vk/LICENSE.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/codebreaker_vk/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/codebreaker_vk/Rakefile" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/codebreaker_vk/bin/console" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/codebreaker_vk/bin/setup" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/codebreaker_vk/codebreaker.gemspec" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/codebreaker_vk/lib/codebreaker.rb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/codebreaker_vk/lib/codebreaker/version.rb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/codebreaker_vk/spec/codebreaker_spec.rb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/codebreaker_vk/spec/spec_helper.rb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/codebreaker_vk.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/codebreaker_vk.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/codebreaker/Gemfile" beforeDir="false" afterPath="$PROJECT_DIR$/codebreaker/Gemfile" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -29,141 +27,18 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="FUSProjectUsageTrigger">
-    <session id="1463203759">
-      <usages-collector id="statistics.lifecycle.project">
-        <counts>
-          <entry key="project.closed" value="1" />
-          <entry key="project.open.time.0" value="2" />
-          <entry key="project.opened" value="2" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.file.extensions.open">
-        <counts>
-          <entry key="Gemfile" value="1" />
-          <entry key="gemspec" value="1" />
-          <entry key="gitignore" value="1" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.file.types.open">
-        <counts>
-          <entry key="Git file" value="1" />
-          <entry key="Ruby" value="2" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.file.extensions.edit">
-        <counts>
-          <entry key="Gemfile" value="2" />
-          <entry key="gemspec" value="145" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.file.types.edit">
-        <counts>
-          <entry key="Ruby" value="147" />
-        </counts>
-      </usages-collector>
-    </session>
-  </component>
-  <component name="FileEditorManager">
-    <leaf>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/codebreaker/codebreaker.gemspec">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="159">
-              <caret line="22" column="15" selection-start-line="22" selection-start-column="15" selection-end-line="22" selection-end-column="15" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/codebreaker/Gemfile">
-          <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret column="29" selection-start-column="29" selection-end-column="29" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/.gitignore">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="15">
-              <caret line="1" selection-start-line="1" selection-end-line="1" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
-  </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/codebreaker" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/codebreaker_vk" />
   </component>
-  <component name="IdeDocumentHistory">
-    <option name="CHANGED_PATHS">
-      <list>
-        <option value="$PROJECT_DIR$/.gitignore" />
-        <option value="$PROJECT_DIR$/codebreaker/codebreaker.gemspec" />
-        <option value="$PROJECT_DIR$/codebreaker/Gemfile" />
-      </list>
-    </option>
-  </component>
-  <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
-  <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
-  <component name="JsGulpfileManager">
-    <detection-done>true</detection-done>
-    <sorting>DEFINITION_ORDER</sorting>
-  </component>
-  <component name="ProjectFrameBounds">
-    <option name="x" value="554" />
-    <option name="y" value="39" />
-    <option name="width" value="931" />
-    <option name="height" value="805" />
-  </component>
+  <component name="ProjectId" id="1P0O3Vpkx2WJdak8XMJKNFTpcil" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
-  <component name="ProjectView">
-    <navigator currentView="Scope" currentSubView="Scope 'Project Files'; set:Project Files; class com.intellij.psi.search.scope.ProjectFilesScope" proportions="" version="1">
-      <foldersAlwaysOnTop value="true" />
-    </navigator>
-    <panes>
-      <pane id="Scope">
-        <subPane subId="Scope 'Project Files'; set:Project Files; class com.intellij.psi.search.scope.ProjectFilesScope">
-          <expand>
-            <path>
-              <item name="codebreaker_vk" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="" type="442cc68d:ScopeViewTreeModel$RootNode" />
-            </path>
-            <path>
-              <item name="codebreaker_vk" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="" type="442cc68d:ScopeViewTreeModel$RootNode" />
-              <item name="codebreaker" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
-      <pane id="ProjectPane">
-        <subPane>
-          <expand>
-            <path>
-              <item name="codebreaker_vk" type="b2602c69:ProjectViewProjectNode" />
-              <item name="codebreaker_vk" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="codebreaker_vk" type="b2602c69:ProjectViewProjectNode" />
-              <item name="codebreaker_vk" type="462c0819:PsiDirectoryNode" />
-              <item name="codebreaker" type="462c0819:PsiDirectoryNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
-    </panes>
-  </component>
   <component name="PropertiesComponent">
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="project.settings.patched" value="true" />
+    <property name="settings.editor.selected.configurable" value="org.jetbrains.plugins.ruby.settings.RubyActiveModuleSdkConfigurable" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -189,12 +64,12 @@
       <option name="presentableId" value="Default" />
       <updated>1563262787452</updated>
       <workItem from="1563262788835" duration="912000" />
-      <workItem from="1563263856348" duration="1579000" />
+      <workItem from="1563263856348" duration="2505000" />
+      <workItem from="1563266393317" duration="2190000" />
+      <workItem from="1565007350468" duration="28000" />
+      <workItem from="1565595633487" duration="842000" />
     </task>
     <servers />
-  </component>
-  <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="2491000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -205,58 +80,20 @@
       <is-autoscroll-to-source value="true" />
     </todo-panel>
   </component>
-  <component name="ToolWindowManager">
-    <frame x="554" y="39" width="931" height="805" extended-state="0" />
-    <editor active="true" />
-    <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25534308" />
-      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info id="Favorites" order="2" side_tool="true" />
-      <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.3286517" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="6" weight="0.3286517" />
-      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Database Changes" order="8" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" order="9" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Terminal" order="10" visible="true" weight="0.3286517" />
-      <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" />
-      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
-      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="right" id="Database" order="3" />
-    </layout>
-  </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
   </component>
-  <component name="VcsContentAnnotationSettings">
-    <option name="myLimit" value="2678400000" />
-  </component>
-  <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/.gitignore">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="1" selection-start-line="1" selection-end-line="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/codebreaker/codebreaker.gemspec">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="159">
-          <caret line="22" column="15" selection-start-line="22" selection-start-column="15" selection-end-line="22" selection-end-column="15" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/codebreaker/Gemfile">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="29" selection-start-column="29" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
 </project>
